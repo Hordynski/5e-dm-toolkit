@@ -65,13 +65,24 @@ namespace TeamAlpha.GoldenOracle.Controllers
 
         public async Task<ActionResult> Details(int? index)
         {
-            //Monsters monster = null;
             var client = new HttpClient();
             var urlExtension = $"api/monsters/" + index;
 
             client.BaseAddress = new Uri("http://dnd5eapi.co/");
             var result = await client.GetAsync(urlExtension);
             var monster = await result.Content.ReadAsAsync<Monsters>();
+
+            return View(monster);
+        }
+
+        public ActionResult Edit(Monsters monster)
+        {
+            //var client = new HttpClient();
+            //var urlExtension = $"api/monsters/" + index;
+
+            //client.BaseAddress = new Uri("http://dnd5eapi.co/");
+            //var result = await client.GetAsync(urlExtension);
+            //var monster = await result.Content.ReadAsAsync<Monsters>();
 
             return View(monster);
         }

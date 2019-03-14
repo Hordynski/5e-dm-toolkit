@@ -1,4 +1,4 @@
-﻿@model _5e_DM_ToolKit_v1.Models.Monsters
+﻿@model TeamAlpha.GoldenOracle.Models.Monsters
 
 @{
     ViewBag.Title = "Details";
@@ -352,7 +352,7 @@
         </dl>
 </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Edit", "Edit", new { monster = Model }) |
     @Html.ActionLink("Add", "SendMonster", new { name = Model.Name, initiative = random.Next(1, 20) })
 </p>
