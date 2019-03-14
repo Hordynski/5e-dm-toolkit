@@ -41,6 +41,5 @@ namespace TeamAlpha.GoldenOracle.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-
     }
 }

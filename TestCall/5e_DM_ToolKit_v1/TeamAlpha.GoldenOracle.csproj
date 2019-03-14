@@ -146,6 +146,7 @@
     <Compile Include="Controllers\AbilityController.cs" />
     <Compile Include="Controllers\MonstersController.cs" />
     <Compile Include="Controllers\MvcExtensionsLibrary.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SpellsController.cs" />
     <Compile Include="DAL\DungeonContext.cs" />
     <Compile Include="DAL\DungeonInitializer.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Models\SavingThrows.cs" />
     <Compile Include="Models\School.cs" />
     <Compile Include="Models\Skills.cs" />
+    <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\SpecialAbilities.cs" />
     <Compile Include="Models\Spells.cs" />
     <Compile Include="Models\StartingProficiencies.cs" />
@@ -183,6 +185,7 @@
     <Compile Include="Services\SpellsService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="5e_DM_ToolKit_v1.csproj.user" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -264,6 +267,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Character\Edit.cshtml" />
+    <Content Include="Views\Character\Delete.cshtml" />
+    <Content Include="Views\Character\Details.cshtml" />
+    <Content Include="Views\Slider\Index.cshtml" />
     <Content Include="Views\Monsters\Details.cshtml" />
     <Content Include="Views\Monsters\Edit.cshtml" />
   </ItemGroup>

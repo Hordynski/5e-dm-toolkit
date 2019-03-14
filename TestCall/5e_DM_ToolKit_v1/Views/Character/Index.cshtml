@@ -7,6 +7,9 @@
     ViewBag.Title = "Character Creation";
 }
 
+
+
+
 <h2>Character Creation</h2>
 @using (Html.BeginForm())
 {
@@ -14,92 +17,92 @@
 
     <div class="form">
 
-            <div class="form-horizontal">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
 
                 <div class="form-group">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Strength, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Strength, new { htmlAttributes = new { min = 0, max = 20 } })
-                            @Html.ValidationMessageFor(model => model.Strength, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Race, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EnumDropDownListFor(model => model.RaceSelection,
-                           new { @class = "form-control" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.SubRaces, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EnumDropDownListFor(model => model.SubRaceSelection,
-                           new { @class = "form-control" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Class, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EnumDropDownListFor(model => model.ClassSelection,
-                           new { @class = "form-control" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Dexterity, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Dexterity, new { htmlAttributes = new { min = 0, max = 20 } })
-                            @Html.ValidationMessageFor(model => model.Dexterity, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Constitution, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Constitution, new { htmlAttributes = new { min = 0, max = 20 } })
-                            @Html.ValidationMessageFor(model => model.Constitution, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Intelligence, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Intelligence, new { htmlAttributes = new { min = 0, max = 20 } })
-                            @Html.ValidationMessageFor(model => model.Intelligence, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Wisdom, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Wisdom, new { htmlAttributes = new { min = 0, max = 20 } })
-                            @Html.ValidationMessageFor(model => model.Wisdom, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Charisma, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Charisma, new { htmlAttributes = new { min = 0, max = 20 } })
-                            @Html.ValidationMessageFor(model => model.Charisma, "", new { @class = "text-danger" })
-                        </div>
+                    @Html.LabelFor(model => model.Race, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(model => model.RaceSelection,
+                       new { @class = "form-control" })
                     </div>
                 </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SubRaces, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(model => model.SubRaceSelection,
+                        new { @class = "form-control" })                    
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Class, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(model => model.ClassSelection,
+                       new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Strength, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Strength, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+                        @Html.ValidationMessageFor(model => model.Strength, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dexterity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Dexterity, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+                        @Html.ValidationMessageFor(model => model.Dexterity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Constitution, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Constitution, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+                        @Html.ValidationMessageFor(model => model.Constitution, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Intelligence, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Intelligence, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+                        @Html.ValidationMessageFor(model => model.Intelligence, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Wisdom, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Wisdom, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+                        @Html.ValidationMessageFor(model => model.Wisdom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Charisma, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Charisma, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+                        @Html.ValidationMessageFor(model => model.Charisma, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
             </div>
+        </div>
         <div>
             <p></p>
         </div>

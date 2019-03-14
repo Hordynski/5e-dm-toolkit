@@ -1,0 +1,53 @@
+﻿@model Slider
+    @using TeamAlpha.GoldenOracle.Models
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <style>
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+            .slider:hover {
+                opacity: 1;
+            }
+
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 25px;
+                height: 25px;
+                background: #ff0000;
+                cursor: pointer; -->
+            }
+    </style>
+
+    <h1> Slider</h1>
+
+    <div class="slidecontainer">
+
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    </div>
+
+
+    <output class="Strength">10</output>
+    <output class="Dexterity">15</output>
+    <output class="Constitution">14</output>
+    <output class="Intelligence">16</output>
+    <output class="Wisdom">12</output>
+    <output class="Charisma">8</output>
+    <output class="HitPoints">99</output>
+
+

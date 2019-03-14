@@ -2,6 +2,9 @@
 
 @{
     ViewBag.Title = "List";
+
+
+
 }
 
 <h2>Character List</h2>
@@ -14,9 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Strength)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Race)
         </th>
@@ -26,7 +29,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Class)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Dexterity)
         </th>
         <th>
@@ -40,7 +43,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Charisma)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -49,9 +52,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Strength)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.RaceSelection)
         </td>
@@ -61,7 +64,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ClassSelection)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Dexterity)
         </td>
         <td>
@@ -75,12 +78,13 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Charisma)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID })  |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+            @Html.ActionLink("Add", "SendCharacter", new { name = item.Name })
+        </td>
     </tr>
 }
 
