@@ -7,11 +7,14 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Runtime.Caching;
 
 namespace TeamAlpha.GoldenOracle.Controllers
 {
     public class MonstersController : Controller
     {
+        private readonly MemoryCache _cache = MemoryCache.Default;
+        private readonly CacheItemPolicy _policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
         private DungeonContext db = new DungeonContext();
         // GET: Monster
 
@@ -73,6 +76,11 @@ namespace TeamAlpha.GoldenOracle.Controllers
             var result = await client.GetAsync(urlExtension);
             var monster = await result.Content.ReadAsAsync<Monsters>();
 
+            return View(monster);
+        }
+
+        public ActionResult Edit(Monsters monster)
+        {
             return View(monster);
         }
     }
