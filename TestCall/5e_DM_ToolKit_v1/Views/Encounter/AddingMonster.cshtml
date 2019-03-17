@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "What would you like to do?";
+}
+
+<h2>Choose your path</h2>
+
+<p>
+    Would you like to add a monster? <br />
+    @Html.ActionLink("Add", "RedirectingToMonsters"); <br /><br />
+
+    Are you done? <br />
+    @Html.ActionLink("Done", "FinishBuildingEncounter")
+</p>
+

@@ -348,11 +348,47 @@
                 ===========================================
              </dd>
             }
-        
+
         </dl>
-</div>
+
+    @*@foreach (var property in ViewData.ModelMetadata.Properties)
+    {
+        Type propertyType = property.GetType();
+
+        if (propertyType == typeof(TeamAlpha.GoldenOracle.Models.SpecialAbilities))
+        {
+            <dd>
+                @foreach (var item in Model.Special_Abilities)
+                {
+                    <dd>
+                        Name:
+                        @item.Name <br />
+                        Description:
+                        @item.Desc <br />
+                        Attack Bonus:
+                        @item.Attack_Bonus<br />
+                        ===========================================
+                    </dd>
+                }
+            </dd>
+        }
+
+                    else if (true)
+                    {
+
+                    }
+
+                    else
+                    {
+        <div class="editor-line">
+            <label>@(property.DisplayName ?? property.PropertyName)</label>
+            @Html.Editor(property.PropertyName)
+        </div>
+        }
+    }*@
+            </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit") |
+    @Html.ActionLink("Back to List", "Index") |
     @Html.ActionLink("Add", "SendMonster", new { name = Model.Name, initiative = random.Next(1, 20) })
 </p>

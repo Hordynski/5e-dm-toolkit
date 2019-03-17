@@ -36,6 +36,7 @@ namespace TeamAlpha.GoldenOracle.DAL
         public DbSet<Subraces> Subraces { get; set; }
         public DbSet<ThrowRange> ThrowRanges { get; set; }
         public DbSet<Traits> Traits { get; set; }
+        public DbSet<Encounter> Encounters { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

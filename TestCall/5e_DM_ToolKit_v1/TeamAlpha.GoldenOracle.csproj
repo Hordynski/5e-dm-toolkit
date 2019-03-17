@@ -143,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddController.cs" />
     <Compile Include="Controllers\CharacterController.cs" />
+    <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AbilityController.cs" />
     <Compile Include="Controllers\MonstersController.cs" />
@@ -153,6 +154,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903101513303_InitialCreate.cs" />
+    <Compile Include="Migrations\201903101513303_InitialCreate.Designer.cs">
+      <DependentUpon>201903101513303_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903171847560_AddEncounterMonsterList.cs" />
+    <Compile Include="Migrations\201903171847560_AddEncounterMonsterList.Designer.cs">
+      <DependentUpon>201903171847560_AddEncounterMonsterList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AbilityScores.cs" />
     <Compile Include="Models\Actions.cs" />
     <Compile Include="Models\Classes.cs" />
@@ -161,6 +171,7 @@
     <Compile Include="Models\Damage.cs" />
     <Compile Include="Models\DamageType.cs" />
     <Compile Include="Models\Characters.cs" />
+    <Compile Include="Models\Encounter.cs" />
     <Compile Include="Models\EncounterCreature.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\LegendaryActions.cs" />
@@ -266,6 +277,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Monsters\Details.cshtml" />
+    <Content Include="Views\Monsters\Edit.cshtml" />
+    <Content Include="Views\Encounter\Index.cshtml" />
+    <Content Include="Views\Encounter\BuildEncounter.cshtml" />
+    <Content Include="Views\Encounter\Details.cshtml" />
+    <Content Include="Views\Encounter\AddingMonster.cshtml" />
+    <Content Include="Views\Encounter\FinishBuildingEncounter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -280,6 +297,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903171847560_AddEncounterMonsterList.resx">
+      <DependentUpon>201903171847560_AddEncounterMonsterList.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

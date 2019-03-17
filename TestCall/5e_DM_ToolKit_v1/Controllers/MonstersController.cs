@@ -15,6 +15,7 @@ namespace TeamAlpha.GoldenOracle.Controllers
     {
         private readonly MemoryCache _cache = MemoryCache.Default;
         private readonly CacheItemPolicy _policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
+
         private DungeonContext db = new DungeonContext();
         // GET: Monster
 
@@ -76,12 +77,31 @@ namespace TeamAlpha.GoldenOracle.Controllers
             var result = await client.GetAsync(urlExtension);
             var monster = await result.Content.ReadAsAsync<Monsters>();
 
+            _cache.Set("Monster", monster, _policy);
+
             return View(monster);
         }
 
+        public ActionResult Edit()
+        {
+            Monsters monster = _cache.Get("Monster") as Monsters;
+
+            return View(monster);
+        }
+
+        [HttpPost]
         public ActionResult Edit(Monsters monster)
         {
-            return View(monster);
+            _cache.Set("Monster", monster, _policy);
+
+            return RedirectToAction("SaveMonsterToList", "Encounter", monster);
+        }
+
+        public ActionResult EncounterMonster(Monsters monster)
+        {
+            monster = _cache.Get("Monster") as Monsters;
+
+            return RedirectToAction("SaveMonsterToList", "Encounter", monster);
         }
     }
 }
