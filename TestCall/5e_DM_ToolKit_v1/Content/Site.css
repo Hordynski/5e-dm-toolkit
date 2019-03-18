@@ -1,12 +1,40 @@
-﻿body {
-    padding-top: 50px;
+﻿@import url('https://fonts.googleapis.com/css?family=Cinzel');
+
+.title {
+    font-family: 'Cinzel', serif;
+    font-size: 32pt;
+}
+
+body {
     padding-bottom: 20px;
+    background-image: url("parchment1.jpg");
+}
+
+a {
+    transition: 1s ease;
+    color: goldenrod;
+}
+
+a:hover {
+    color: yellow;
+    transition: 1s ease;
+}
+
+.navbar {
+    background-color: saddlebrown;
+    position: fixed;
+    width: 100%;
+}
+
+.title-menu {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-top: 89px;
+    position: fixed;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -14,6 +42,8 @@
 */
 .dl-horizontal dt {
     white-space: normal;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -21,4 +51,46 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#encounter-list {
+    position: fixed;
+    left: 0;
+    width: 400px;
+    border-right: 2px solid slategray;
+    background: dimgray;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+#encounter-btns-div {
+    position: absolute;
+    bottom: 89px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template: auto / 50% 50%;
+    background: transparent;
+}
+
+.encounter-btn {
+    font-weight: 400;
+    color: goldenrod;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 12px;
+    user-select: none;
+    background-color: saddlebrown;
+    border: 1px solid #000;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: 1s ease;
+    text-decoration: none;
+}
+
+.go-container {
+    display: grid;
+    color: goldenrod;
+    background: #593619;
 }

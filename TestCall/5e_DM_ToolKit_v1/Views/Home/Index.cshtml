@@ -3,18 +3,42 @@
 @using TeamAlpha.GoldenOracle.Models
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "GO Initiative Tracker";
 }
+<body>
+    <div id="encounter-list">
+        <div>
+            <h3>Encounter:</h3>
+            @*@(Html.Kendo().ComboBox().Name("fabric").Filter("contains").Placeholder("Select fabric...").DataTextField("Text").DataValueField("Value").BindTo(new List<SelectListItem>() {
+            new SelectListItem() { Text = "Cotton", Value = "1" },
+            new SelectListItem() { Text = "Polyester", Value = "2" },
+            new SelectListItem() { Text = "Cotton/Polyester", Value = "3" },
+            new SelectListItem() { Text = "Rib Knit", Value = "4" } }).SelectedIndex(3).Suggest(true).HtmlAttributes(new { style = "width:100%;" }))*@
+        </div>
 
-<h1>5e Initiative Tracker</h1>
+        @foreach (var creature in Model)
+        {
+            <li>@creature.Initiative - @creature.Name</li>
+            @*<a href="~/Views/Monsters/Details.cshtml">@creature.Initiative - @creature.Name</a>*@
+        }
 
-@foreach (var creature in Model)
-{
-    <li>@creature.Initiative - @creature.Name</li>
-}
-
-    <div>
-        @*@Html.ActionLink("Next Turn", "NextTurn", "Home", null, new { @class = "btn btn-default" })*@
-        @Html.ActionLink("Add Creature", "Index", "Add", null, new { @class = "btn btn-default" })
+        <div id="encounter-btns-div">
+            @Html.ActionLink("Add Creature", "Index", "Add", null, new { @class = "encounter-btn" })
+            @Html.ActionLink("Next Turn", "NextTurn", "Home", null, new { @class = "encounter-btn" })
+        </div>
     </div>
 
+    <div>
+        @*@Html.Partial("MonstersDetail")
+        <div class="container body-content">
+            @RenderBody()
+            <p>Hello world!</p>
+        </div>*@
+    </div>
+</body>
+
+<script language="javascript">
+    //$(document).ready(function () {
+    //    $("#")
+    //})
+</script>

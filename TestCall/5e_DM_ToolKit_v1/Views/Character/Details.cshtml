@@ -1,0 +1,98 @@
+﻿@model TeamAlpha.GoldenOracle.Models.Characters
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Characters</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Race)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaceSelection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubRaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubRaceSelection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassSelection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Strength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Strength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dexterity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dexterity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Constitution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Constitution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intelligence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intelligence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wisdom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wisdom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Charisma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Charisma)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

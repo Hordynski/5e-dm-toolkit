@@ -9,12 +9,18 @@ namespace TeamAlpha.GoldenOracle.Controllers
     {
         public ActionResult Index()
         {
-            Queue<EncounterCreature> creaturesQueue = new Queue<EncounterCreature>();
+            //using (DungeonContext dungeon = new DungeonContext())
+            //{
+            //    List<Monsters> model = dungeon.Monsters.ToList();
+            //}
+
+            List<EncounterCreature> encounter = encounterCreatures;
 
             // Note: Add feature to add a new creature mid-encounter without messing up current order.
-            if (encounterCreatures.Count > 1)
-                encounterCreatures.Sort((x, y) => y.Initiative.CompareTo(x.Initiative));
-            foreach (var x in encounterCreatures)
+            if (encounter.Count > 1)
+                encounter.Sort((x, y) => y.Initiative.CompareTo(x.Initiative));
+            creaturesQueue.Clear();
+            foreach (var x in encounter)
             {
                 creaturesQueue.Enqueue(x);
             }
@@ -22,12 +28,20 @@ namespace TeamAlpha.GoldenOracle.Controllers
             return View(creaturesQueue);
         }
 
-        public ActionResult NextTurn()
+        public ActionResult GetView()
         {
-            //creaturesQueue.Enqueue(creaturesQueue.Dequeue());
-            return RedirectToAction("Index", "Home");
+            return PartialView();
         }
 
+        public ActionResult NextTurn()
+        {
+            if (creaturesQueue.Count > 0)
+                creaturesQueue.Enqueue(creaturesQueue.Dequeue());
+
+            return View("Index", creaturesQueue);
+        }
+
+        public static Queue<EncounterCreature> creaturesQueue = new Queue<EncounterCreature>();
         public static List<EncounterCreature> encounterCreatures = new List<EncounterCreature>();
     }
 }

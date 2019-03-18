@@ -1,0 +1,109 @@
+﻿@model _5e_DM_ToolKit_v1.Models.Characters
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Characters</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RaceSelection, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.RaceSelection, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RaceSelection, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SubRaces, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.SubRaceSelection, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SubRaceSelection, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ClassSelection, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.ClassSelection, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ClassSelection, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Strength, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Strength, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+            @Html.ValidationMessageFor(model => model.Strength, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+     <div class="form-group">
+        @Html.LabelFor(model => model.Dexterity, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Dexterity, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+            @Html.ValidationMessageFor(model => model.Dexterity, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Constitution, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Constitution, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+            @Html.ValidationMessageFor(model => model.Constitution, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Intelligence, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Intelligence, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+            @Html.ValidationMessageFor(model => model.Intelligence, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Wisdom, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Wisdom, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+            @Html.ValidationMessageFor(model => model.Wisdom, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Charisma, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Charisma, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+            @Html.ValidationMessageFor(model => model.Charisma, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>

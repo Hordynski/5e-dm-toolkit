@@ -7,12 +7,13 @@
     ViewBag.Title = "Character Creation";
 }
 
-<h2>Character Creation</h2>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="go-container">
+    <h2>Character Creation</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form">
+        <div class="form">
 
             <div class="form-horizontal">
 
@@ -28,14 +29,6 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Strength, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Strength, new { htmlAttributes = new { min = 0, max = 20 } })
-                            @Html.ValidationMessageFor(model => model.Strength, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         @Html.LabelFor(model => model.Race, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EnumDropDownListFor(model => model.RaceSelection,
@@ -47,7 +40,7 @@
                         @Html.LabelFor(model => model.SubRaces, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EnumDropDownListFor(model => model.SubRaceSelection,
-                           new { @class = "form-control" })
+                            new { @class = "form-control" })
                         </div>
                     </div>
 
@@ -58,11 +51,18 @@
                            new { @class = "form-control" })
                         </div>
                     </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Strength, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Strength, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
+                            @Html.ValidationMessageFor(model => model.Strength, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Dexterity, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Dexterity, new { htmlAttributes = new { min = 0, max = 20 } })
+                            @Html.EditorFor(model => model.Dexterity, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
                             @Html.ValidationMessageFor(model => model.Dexterity, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Constitution, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Constitution, new { htmlAttributes = new { min = 0, max = 20 } })
+                            @Html.EditorFor(model => model.Constitution, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
                             @Html.ValidationMessageFor(model => model.Constitution, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Intelligence, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Intelligence, new { htmlAttributes = new { min = 0, max = 20 } })
+                            @Html.EditorFor(model => model.Intelligence, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
                             @Html.ValidationMessageFor(model => model.Intelligence, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Wisdom, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Wisdom, new { htmlAttributes = new { min = 0, max = 20 } })
+                            @Html.EditorFor(model => model.Wisdom, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
                             @Html.ValidationMessageFor(model => model.Wisdom, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -94,23 +94,25 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Charisma, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Charisma, new { htmlAttributes = new { min = 0, max = 20 } })
+                            @Html.EditorFor(model => model.Charisma, new { htmlAttributes = new { @class = "form-control", min = 0, max = 20 } })
                             @Html.ValidationMessageFor(model => model.Charisma, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
                 </div>
             </div>
-        <div>
-            <p></p>
-        </div>
+            <div>
+                <p></p>
+            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
         </div>
-    </div>
-}
+    }
 
 
-@Html.ActionLink("Back to List", "List")
+    @Html.ActionLink("Back to List", "List")
+</div>

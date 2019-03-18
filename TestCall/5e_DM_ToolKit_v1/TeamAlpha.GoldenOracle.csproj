@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -148,6 +148,7 @@
     <Compile Include="Controllers\AbilityController.cs" />
     <Compile Include="Controllers\MonstersController.cs" />
     <Compile Include="Controllers\MvcExtensionsLibrary.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SpellsController.cs" />
     <Compile Include="DAL\DungeonContext.cs" />
     <Compile Include="DAL\DungeonInitializer.cs" />
@@ -155,6 +156,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201903101513303_InitialCreate.cs" />
+<<<<<<< HEAD
     <Compile Include="Migrations\201903101513303_InitialCreate.Designer.cs">
       <DependentUpon>201903101513303_InitialCreate.cs</DependentUpon>
     </Compile>
@@ -162,6 +164,11 @@
     <Compile Include="Migrations\201903172104142_SomeNewStuff.Designer.cs">
       <DependentUpon>201903172104142_SomeNewStuff.cs</DependentUpon>
     </Compile>
+=======
+    <Compile Include="Migrations\201903101513303_InitialCreate.Designer.cs" />
+    <Compile Include="Migrations\201903110052199_Dungeon.cs" />
+    <Compile Include="Migrations\201903110052199_Dungeon.Designer.cs" />
+>>>>>>> c54f15c6578c70d68204e9515f678c06ab7a7730
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AbilityScores.cs" />
     <Compile Include="Models\Actions.cs" />
@@ -184,6 +191,7 @@
     <Compile Include="Models\SavingThrows.cs" />
     <Compile Include="Models\School.cs" />
     <Compile Include="Models\Skills.cs" />
+    <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\SpecialAbilities.cs" />
     <Compile Include="Models\Spells.cs" />
     <Compile Include="Models\StartingProficiencies.cs" />
@@ -203,6 +211,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\parchment1.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -247,7 +256,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -258,8 +269,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Spells\Index.cshtml" />
     <Content Include="Views\Ability\Select.cshtml" />
@@ -277,6 +286,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Character\Edit.cshtml" />
+    <Content Include="Views\Character\Delete.cshtml" />
+    <Content Include="Views\Character\Details.cshtml" />
+    <Content Include="Views\Slider\Index.cshtml" />
     <Content Include="Views\Monsters\Details.cshtml" />
     <Content Include="Views\Monsters\Edit.cshtml" />
     <Content Include="Views\Encounter\Index.cshtml" />
@@ -285,6 +298,7 @@
     <Content Include="Views\Encounter\FinishBuildingEncounter.cshtml" />
     <Content Include="Views\Encounter\List.cshtml" />
     <Content Include="Views\Encounter\Details.cshtml" />
+    <Content Include="Views\Home\MonstersDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
