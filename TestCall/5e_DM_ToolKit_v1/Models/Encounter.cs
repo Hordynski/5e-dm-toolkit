@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TeamAlpha.GoldenOracle.Models
 {
@@ -13,6 +9,6 @@ namespace TeamAlpha.GoldenOracle.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string MonsterList { get; set; }
-        public int ChallengeRating { get; set; }
+        public double ChallengeRating { get; set; }
     }
 }

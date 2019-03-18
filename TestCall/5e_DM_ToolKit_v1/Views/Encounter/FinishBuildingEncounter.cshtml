@@ -1,19 +1,10 @@
 ﻿@model TeamAlpha.GoldenOracle.Models.Encounter
 
 @{
-    ViewBag.Title = "FinishBuildingEncounter";
-
-    var cr = 0;
-
-    foreach (var item in Model.MonsterList)
-    {
-        cr += Convert.ToInt32(item.Challenge_Rating);
-    }
-
-    var crString = Convert.ToString(cr);
+    ViewBag.Title = "Finish Building Encounter";
 }
 
-<h2>FinishBuildingEncounter</h2>
+<h2>Finish Building Encounter</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -36,13 +27,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ChallengeRating, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.Label(crString);
             </div>
         </div>
 

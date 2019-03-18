@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TeamAlpha.GoldenOracle.Models.Encounter>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<h4>Encounter</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChallengeRating)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChallengeRating)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { ID = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @*@Html.ActionLink("Details", "Details", new { id = Model.ID }) |*@
+    @Html.ActionLink("Back to Home", "Index") |
+    @Html.ActionLink("Build New Encounter", "BuildEncounter")
+</p>

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
-using System.Web;
 using System.Web.Mvc;
-using System.Xml;
-using System.Xml.Serialization;
+using System.Web.Script.Serialization;
 using TeamAlpha.GoldenOracle.DAL;
 using TeamAlpha.GoldenOracle.Models;
+using TeamAlpha.GoldenOracle.Services;
 
 namespace TeamAlpha.GoldenOracle.Controllers
 {
@@ -17,29 +15,42 @@ namespace TeamAlpha.GoldenOracle.Controllers
         private readonly MemoryCache _cache = MemoryCache.Default;
         private readonly CacheItemPolicy _policy = new CacheItemPolicy { SlidingExpiration = TimeSpan.FromHours(1) };
         private DungeonContext db = new DungeonContext();
+        public List<Monsters> monsterList = new List<Monsters>();
 
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult List()
         {
             return View(db.Encounters.ToList());
         }
 
         public ActionResult Details(int id)
         {
-            return View(db.Encounters.Find(id));
+            var encounter = db.Encounters.Find(id);
+            var decompressedJSON = StringCompression.Decompress(encounter.MonsterList);
+            var jsonSerializer = new JavaScriptSerializer();
+            List<Monsters> finalMonsterList = jsonSerializer.Deserialize<List<Monsters>>(decompressedJSON);
+            ViewBag.ETitle = encounter.Title;
+            ViewBag.EDescription = encounter.Description;
+            ViewBag.ECR = encounter.ChallengeRating;
+
+            return View(finalMonsterList);
         }
 
         public ActionResult BuildEncounter()
         {
-            
-
             return RedirectToAction("AddingMonster");
         }
 
         public ActionResult SaveMonsterToList(Monsters monster)
         {
-            List<Monsters> monsterList = new List<Monsters>();
-
-            _cache.Set("MonsterList", monsterList, _policy);
+            if (monsterList == null)
+            { 
+                _cache.Set("MonsterList", monsterList, _policy);
+            }
 
             monsterList.Add(monster);
 
@@ -58,31 +69,35 @@ namespace TeamAlpha.GoldenOracle.Controllers
 
         public ActionResult FinishBuildingEncounter()
         {
-            List<Monsters> monsterList = _cache.Get("MonsterList") as List<Monsters>;
-
-            return View(monsterList);
+            return View();
         }
 
         [HttpPost]
         public ActionResult FinishBuildingEncounter(Encounter encounter)
         {
-            List<Monsters> monsterList = _cache.Get("MonsterList") as List<Monsters>;
+            List<Monsters> finalMonsterList = _cache.Get("MonsterList") as List<Monsters>;
 
-            XmlSerializer xsSubmit = new XmlSerializer(typeof(List<Monsters>));
-            var xml = "";
-
-            using (var sww = new StringWriter())
+            double crSum = 0;
+            foreach (var item in finalMonsterList)
             {
-                using (XmlWriter writer = XmlWriter.Create(sww))
-                {
-                    xsSubmit.Serialize(writer, monsterList);
-                    xml = sww.ToString();
-                }
+                crSum += Convert.ToDouble(item.Challenge_Rating);
             }
-            encounter.MonsterList = xml;
+
+            encounter.ChallengeRating = crSum;
+            var jsonSerializer = new JavaScriptSerializer();
+            var json = jsonSerializer.Serialize(finalMonsterList);
+            var compressedJSON = StringCompression.Compress(json);
+
+            encounter.MonsterList = compressedJSON;
 
             db.Encounters.Add(encounter);
             db.SaveChanges();
+
+            foreach (System.Collections.DictionaryEntry entry in HttpContext.Cache)
+            {
+                HttpContext.Cache.Remove("MonsterList");
+                HttpContext.Cache.Remove("Monster");
+            }
 
             return RedirectToAction("Index");
         }

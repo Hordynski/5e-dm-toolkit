@@ -1,4 +1,4 @@
-﻿@model TeamAlpha.GoldenOracle.Models.Encounter
+﻿@model IEnumerable<TeamAlpha.GoldenOracle.Models.Monsters>
 
 @{
     ViewBag.Title = "Details";
@@ -7,38 +7,269 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Encounter</h4>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        @*need to add a display for details of monsters in list*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ChallengeRating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ChallengeRating)
-        </dd>
-
+        <p>
+            <h4>Title</h4>
+            @ViewBag.ETitle
+        </p>
+        <p>
+            <h4>Challenge Rating</h4>
+            @ViewBag.ECR
+        </p>
     </dl>
-</div>
+    <p>
+        <h4>Description</h4>
+        @ViewBag.EDescription
+    </p>
+    <h4>Monsters</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subtype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alignment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Armor_Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hit_Points)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hit_Dice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Strength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dexterity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Constitution)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Intelligence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wisdom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Charisma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dexterity_Save)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Constitution_Save)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Intelligence_Save)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acrobatics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wisdom_Save)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.History)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Charisma_Save)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arcana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deception)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Insight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Religion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Perception)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persuasion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stealth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Damage_Vulnerabilities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Damage_Resistances)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Damage_Immunities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condition_Immunities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Languages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Challenge_Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Special_Abilities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Actions)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alignment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armor_Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hit_Points)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hit_Dice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Strength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dexterity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Constitution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Intelligence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wisdom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Charisma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dexterity_Save)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Constitution_Save)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Intelligence_Save)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acrobatics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wisdom_Save)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.History)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Charisma_Save)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arcana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deception)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Insight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medicine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Religion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Perception)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Persuasion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stealth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Damage_Vulnerabilities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Damage_Resistances)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Damage_Immunities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condition_Immunities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Languages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Challenge_Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Special_Abilities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Actions)
+            </td>
+        </tr>
+        }
+
+    </table>
+    
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
+    @Html.ActionLink("Back to List", "List")
 </p>

@@ -7,13 +7,13 @@ namespace TeamAlpha.GoldenOracle.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddEncounterMonsterList : IMigrationMetadata
+    public sealed partial class SomeNewStuff : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddEncounterMonsterList));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SomeNewStuff));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903171847560_AddEncounterMonsterList"; }
+            get { return "201903172104142_SomeNewStuff"; }
         }
         
         string IMigrationMetadata.Source

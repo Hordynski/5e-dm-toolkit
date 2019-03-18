@@ -4,40 +4,6 @@
     ViewBag.Title = "List of Encounters";
 }
 
-<h2>List</h2>
-
-<div>
-    <h4>Encounter</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ChallengeRating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ChallengeRating)
-        </dd>
-
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Details", "Details", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index") | 
-    @Html.ActionLink("Build New Encounter", "BuildEncounter")
+    @Html.ActionLink("Let's see that list", "List")
 </p>
