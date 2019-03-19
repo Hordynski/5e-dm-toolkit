@@ -277,8 +277,11 @@
     <Content Include="Views\Character\Details.cshtml" />
     <Content Include="Views\Slider\Index.cshtml" />
     <Content Include="Views\Monsters\Details.cshtml" />
+    <Content Include="Views\Shared\_MonstersDetail.cshtml" />
+    <Content Include="Views\Home\PartialCharactersDetail.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\PartialMonsterDetails.cshtml" />
     <Content Include="Views\Home\MonstersDetail.cshtml" />
-    <Content Include="Views\Home\CharactersDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,16 +16,15 @@ namespace TeamAlpha.GoldenOracle.Controllers
         }
 
         //[HttpPost]
-        public ActionResult SaveCreature(string Name, int Initiative)
+        public ActionResult SaveCreature(EncounterCreature encounterCreature)
         {
-            var random = new Random();
 
-            HomeController.encounterCreatures.Add(new EncounterCreature { Name = Name, Initiative = Initiative });
+            HomeController.encounterCreatures.Add(encounterCreature);
 
             if (HomeController.creaturesQueue.Count != 0)
             {
                 int i = HomeController.creaturesQueue.Count;
-                while (HomeController.creaturesQueue.Peek().Initiative > Initiative && i > 0)
+                while (HomeController.creaturesQueue.Peek().Initiative > encounterCreature.Initiative && i > 0)
                 {
                     HomeController.creaturesQueue.Enqueue(HomeController.creaturesQueue.Dequeue());
                     i--;

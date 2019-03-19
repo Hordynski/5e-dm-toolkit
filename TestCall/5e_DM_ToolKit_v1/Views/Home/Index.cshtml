@@ -19,8 +19,16 @@
         @foreach (var creature in Model.EncounterCreatures)
         {
             @*<li>@creature.Initiative - @creature.Name</li>*@
-            @Html.ActionLink($"{creature.Initiative} - {@creature.Name}", "CreatureDetail", "Home", null, new { @class = "btn" })
-            <br/>
+        if (creature.isMonster == true)
+        {
+                @Html.ActionLink($"{creature.Initiative} - {@creature.Name}", "MonstersDetail", "Home", new { id = creature._ID, value = creature.isMonster }, new { @class = "btn" })
+        }
+        else
+        {
+                @Html.ActionLink($"{creature.Initiative} - {@creature.Name}", "MonstersDetail", "Home", new { id = creature._ID, value = creature.isMonster }, new { @class = "btn" })
+        }
+            <br />
+
         }
 
         <div id="encounter-btns-div">
@@ -30,8 +38,7 @@
     </div>
 
     <div>
-        <p>Welcome to the page!</p>
-        @Html.Action("MonstersDetail")
+        @{ Html.RenderPartial("_MonstersDetail"); }
     </div>
 </body>
 

@@ -56,11 +56,35 @@ namespace TeamAlpha.GoldenOracle.Controllers
         }
 
         
-        public ActionResult SendMonster(string name, int initiative)
+        public async Task<ActionResult> SendMonster(int index)
         {
-            var monster = new EncounterCreature() { Name = name, Initiative = initiative };
+            var random = new Random();
+            var randomNumber = random.Next(1, 20);
+            var client = new HttpClient();
+            var urlExtension = $"api/monsters/" + index;
 
-            return RedirectToAction("SaveCreature", "Add", monster);
+            client.BaseAddress = new Uri("http://dnd5eapi.co/");
+            var result = await client.GetAsync(urlExtension);
+            var monster = await result.Content.ReadAsAsync<Monsters>();
+
+            var encounterCreature = new EncounterCreature()
+            {
+                Name = monster.Name,
+                Armor_Class = monster.Armor_Class,
+                Hit_Points = monster.Hit_Points,
+                Speed = monster.Speed,
+                Strength = monster.Strength,
+                Dexterity = monster.Dexterity,
+                Constitution = monster.Constitution,
+                Intelligence = monster.Intelligence,
+                Wisdom = monster.Wisdom,
+                Charisma = monster.Charisma,
+                _ID = monster.Index,
+                isMonster = true,
+                Initiative = randomNumber
+            };
+
+            return RedirectToAction("SaveCreature", "Add", encounterCreature);
         }
 
         public async Task<ActionResult> Details(int? index)

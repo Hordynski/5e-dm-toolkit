@@ -1,10 +1,10 @@
 ﻿@model TeamAlpha.GoldenOracle.Models.Monsters
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "PartialMonsterDetails";
 }
 
-<h2>Details</h2>
+<h2>Monster Details</h2>
 
 <div>
     <h4>Monsters</h4>
@@ -325,33 +325,28 @@
         }
 
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Actions)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Actions)
+            </dt>
 
-        <dd>
-            @foreach (var item in Model.Actions)
-            {
             <dd>
-                Name:
-                @item.Name<br />
-                Description:
-                @item.Desc<br />
-                Attack Bonus:
-                @item.Attack_Bonus<br />
-                Damage Bonus:
-                @item.Damage_Bonus<br />
-                Damage Dice:
-                @item.Damage_Dice
-                <br />
-                ===========================================
-             </dd>
+                @foreach (var item in Model.Actions)
+                {
+                <dd>
+                    Name:
+                    @item.Name<br />
+                    Description:
+                    @item.Desc<br />
+                    Attack Bonus:
+                    @item.Attack_Bonus<br />
+                    Damage Bonus:
+                    @item.Damage_Bonus<br />
+                    Damage Dice:
+                    @item.Damage_Dice
+                    <br />
+                    ===========================================
+                </dd>
             }
-        
-        </dl>
-</div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
-    @Html.ActionLink("Back to List", "Index")
-    @Html.ActionLink("Add", "SendMonster", new { name = Model.Name, initiative = random.Next(1, 20) })
-</p>
+
+            </dl>
+        </div>
